@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Главная {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <div class="header">
+        {% if user.is_authenticated %}
+            <nav class="header_nav">
+                <a href="{% url 'basic' %}">Главная</a>
+                <a href="{% url 'polls:index' %}">Вопросы</a>
+                <a href="{% url 'polls:create_question' %}">Создать вопрос</a>
+            </nav>
+            <div class="header_user">
+                <a href="{% url 'polls:profile' %}">Профиль</a>
+                <a href="{% url 'polls:logout' %}">Выйти</a>
+                <a href="{% url 'polls:delete_profile' %}">Удалить аккаунт</a>
+            </div>
+        {% else %}
+            <div class="user_info">
+                {% block user %}
+                    <a href="{% url 'polls:register' %}">Регистрация</a>
+                    <a href="{% url 'polls:login' %}">Авторизация</a>
+                {% endblock %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="main">
+        {% block content %}
+            {% if user.is_authenticated %}
+                <h3>Здравствуйте, {{ user.first_name }} {{ user.last_name }}</h3>
+            {% else %}
+                <h3>Авторизируйтесь для просмотра вопросов</h3>
+            {% endif %}
+        {% endblock %}
+    </div>
+</body>
+</html>

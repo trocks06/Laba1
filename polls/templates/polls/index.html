@@ -1,0 +1,16 @@
+{% extends 'polls/basic.html' %}
+{% block content %}
+    {% if latest_question_list %}
+    <ul>
+        {% for question in latest_question_list %}
+            {% if question.is_active or user.is_superuser %}
+                <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a> - {{ question.question_desc_mini }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>
+            Нет вопросов!
+        </p>
+    {% endif %}
+{% endblock %}

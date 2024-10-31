@@ -1,0 +1,10 @@
+{% extends 'polls/basic.html' %}
+{% block content %}
+    <h1>Регистрация</h1>
+    <form action="{% url 'polls:edit_profile' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a href="{% url 'polls:password_change' %}">Изменить пароль</a>
+        <button type="submit">Редактировать</button>
+    </form>
+{% endblock %}

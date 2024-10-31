@@ -1,0 +1,7 @@
+{% extends 'polls/basic.html' %}
+{% block content %}
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit">Удалить профиль</button>
+    </form>
+{% endblock %}
