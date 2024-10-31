@@ -12,7 +12,3 @@
 - sqlparse	0.4.4
 - typing-extensions	4.7.1
 - wheel	0.41.2
-# Установка проекта
-1. Создать виртуальное окружение
-2. Ввести pip install django в терминале
-3. Ввести pip install Pillow в терминале
