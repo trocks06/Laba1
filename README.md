@@ -1,6 +1,6 @@
 # LocalLibrary
 - Django	3.2.25
-- Python 3.7.3
+- Python 3.7
 - db.sqlite3
 # Библиотеки
 - Django	3.2.25	5.1.3
